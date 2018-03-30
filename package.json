@@ -1,0 +1,32 @@
+{
+  "name": "datatables.net-debug",
+  "version": "0.0.1",
+  "description": "DataTables debugging script",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "datatables",
+    "jquery",
+    "debug",
+    "test"
+  ],
+  "author": "SpryMedia Limited",
+  "license": "MIT",
+  "dependencies": {
+    "serially": "^3.0.3"
+  },
+  "devDependencies": {
+    "browserify": "^16.1.1",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-buffer": "0.0.2",
+    "gulp-sass": "^3.2.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-tap": "^1.0.1",
+    "gulp-typescript": "^4.0.2",
+    "gulp-uglify": "^3.0.0",
+    "gulplog": "^1.0.0",
+    "typescript": "^2.8.1"
+  }
+}

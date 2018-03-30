@@ -1,0 +1,64 @@
+
+%box-border {
+	border-top: 1px solid rgba( 255, 255, 255, 0.1 );
+	border-left: 1px solid rgba( 255, 255, 255, 0.1 );
+	border-right: 1px solid rgba( 0, 0, 0, 0.8 );
+	border-bottom: 1px solid rgba( 0, 0, 0, 1 );
+	padding: 12px;
+}
+
+div.datatables-debug {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	width: 300px;
+	z-index: 55555;
+	background: repeating-linear-gradient(
+		45deg,
+		#0f0f0f,
+		#0f0f0f 10px,
+		#b7c21b 10px,
+		#b7c21b 20px
+	);
+	background-position: top left;
+	background-attachment: fixed;
+	box-shadow: 3px 3px 10px rgba( 0, 0, 0, 0.5 );
+	border: 3px solid #0f0f0f;
+	border-radius: 3px;
+	color: whitesmoke;
+	padding: 4px;
+}
+
+div.datatables-debug--title {
+	@extend %box-border;
+	text-align: center;
+	background-color: #0f0f0f;
+	
+}
+
+div.datatables-debug--button {
+	@extend %box-border;
+	background-color: #0f0f0f;
+	cursor: pointer;
+}
+
+div.datatables-debug--panel {
+	@extend %box-border;
+	padding: 0;
+	max-height: 0;
+	background-color: #0f0f0f;
+	transition: max-height 1s ease-in-out; 
+	overflow: hidden;
+
+	&.__full {
+		max-height: 100px;
+	}
+}
+
+div.datatables-debug--panel-liner {
+	padding: 12px;
+}
+
+div.datatables-debug--close {
+	
+}

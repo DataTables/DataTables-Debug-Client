@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"target": "ES5",
+		"allowJs": true,
+		"lib": ["es2017", "es2016", "DOM"],
+		"pretty": true,
+		"sourceMap": true
+	},
+	"exclude": [
+		"./node_modules/**/*"
+	]
+}
