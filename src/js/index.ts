@@ -4,6 +4,7 @@
  * @license   MIT https://datatables.net/license/mit
  */
 
+import panelVersions from './panelVersions';
 import settings from './settings';
 
 (function (window, document, $, undefined) {
@@ -37,9 +38,7 @@ import settings from './settings';
 			panel.html( 'Upload information' );
 		},
 
-		versions: function ( panel ) {
-			panel.html( 'Version information' );
-		}
+		versions: panelVersions
 	}
 
 	if ($ === undefined) {
@@ -67,19 +66,28 @@ import settings from './settings';
 			$('<div/>')
 				.addClass('datatables-debug--button')
 				.data('panel', 'versions')
-				.html('Version check')
+				.html(
+					'Version check'+
+					'<div class="datatables-debug--button-info">Check to see if your page is running the latest DataTables software.</div>'
+				)
 		)
 		.append(
 			$('<div/>')
 				.addClass('datatables-debug--button')
 				.data('panel', 'common')
-				.html('Check for common issues')
+				.html(
+					'Check for common issues'+
+					'<div class="datatables-debug--button-info">Run automated tests to check for common and previously reported issues.</div>'
+				)
 		)
 		.append(
 			$('<div/>')
 				.addClass('datatables-debug--button')
 				.data('panel', 'upload')
-				.html('Upload configuration data')
+				.html(
+					'Upload configuration data'+
+					'<div class="datatables-debug--button-info">Upload your table\'s configuration and data to allow for further analysis.</div>'
+				)
 		)
 		.append(
 			$('<div/>')
@@ -107,7 +115,7 @@ import settings from './settings';
 					.addClass('datatables-debug--panel-liner')
 				);
 
-			panels[ type ]( panel.children() );
+			panels[ type ]( panel.children(), $ );
 
 			panel.insertAfter( this );
 			

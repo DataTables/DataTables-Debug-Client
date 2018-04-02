@@ -11,7 +11,7 @@ div.datatables-debug {
 	position: absolute;
 	top: 30px;
 	left: 30px;
-	width: 300px;
+	width: 500px;
 	z-index: 55555;
 	background: repeating-linear-gradient(
 		45deg,
@@ -21,7 +21,7 @@ div.datatables-debug {
 		#b7c21b 20px
 	);
 	background-position: top left;
-	background-attachment: fixed;
+	//background-attachment: fixed;
 	box-shadow: 3px 3px 10px rgba( 0, 0, 0, 0.5 );
 	border: 3px solid #0f0f0f;
 	border-radius: 3px;
@@ -33,7 +33,8 @@ div.datatables-debug--title {
 	@extend %box-border;
 	text-align: center;
 	background-color: #0f0f0f;
-	
+	font-variant: small-caps;
+	font-size: 16px;
 }
 
 div.datatables-debug--button {
@@ -42,16 +43,23 @@ div.datatables-debug--button {
 	cursor: pointer;
 }
 
+div.datatables-debug--button-info {
+	font-size: 0.8em;
+	line-height: 16px;
+	color: #aaa;
+}
+
 div.datatables-debug--panel {
 	@extend %box-border;
 	padding: 0;
 	max-height: 0;
-	background-color: #0f0f0f;
+	background-color: #1d1d1d;
 	transition: max-height 1s ease-in-out; 
-	overflow: hidden;
+	overflow-y: auto;
+	overflow-x: hidden;
 
 	&.__full {
-		max-height: 100px;
+		max-height: 300px;
 	}
 }
 
@@ -62,3 +70,68 @@ div.datatables-debug--panel-liner {
 div.datatables-debug--close {
 	
 }
+
+
+
+%version-box {
+	padding: 3px;
+	box-sizing: border-box;
+}
+
+div.datatables-debug--versions-title {
+	font-variant: small-caps;
+	margin: 0.5em 0;
+	padding: 3px;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+div.datatables-debug--versions-item {
+	margin: 3px 0;
+}
+
+span.datatables-debug--versions-name {
+	@extend %version-box;
+	display: inline-block;
+	width: 35%;
+	padding-left: 10px;
+}
+
+span.datatables-debug--versions-update {
+	@extend %version-box;
+	display: inline-block;
+	width: 45%;
+	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+	border-radius: 2px;
+	padding-left: 6px;
+
+	&.__new_version {
+		background: rgb(156, 9, 9);
+	}
+
+	&.__up_to_date {
+		background: rgb(11, 88, 11);
+	}
+
+	&.__nightly_available {
+		background: rgb(173, 116, 9);
+	}
+
+	&.__nightly {
+		background: rgb(9, 9, 187);
+	}
+
+	&.__empty {
+		box-shadow: none;
+	}
+}
+
+span.datatables-debug--versions-version {
+	@extend %version-box;
+	display: inline-block;
+	width: 20%;
+	text-align: right;
+}
+
