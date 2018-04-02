@@ -4,6 +4,7 @@
  * @license   MIT https://datatables.net/license/mit
  */
 
+import panelCommon from './panelCommon';
 import panelVersions from './panelVersions';
 import settings from './settings';
 
@@ -30,9 +31,7 @@ import settings from './settings';
 	}
 
 	let panels = {
-		common: function ( panel ) {
-			panel.html( 'Common run check' );
-		},
+		common: panelCommon,
 
 		upload: function ( panel ) {
 			panel.html( 'Upload information' );

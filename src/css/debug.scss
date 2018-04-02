@@ -135,3 +135,29 @@ span.datatables-debug--versions-version {
 	text-align: right;
 }
 
+
+
+div.datatables-debug--common-table {
+	margin-top: 1em;
+	display: table;
+}
+
+div.datatables-debug--common-item {
+	margin: 0.5em 0;
+	display: table-row;
+	
+	&.__title {
+		font-variant: small-caps;
+	}
+}
+
+span.datatables-debug--common-name {
+	display: table-cell;
+	padding: 6px 0;
+}
+
+span.datatables-debug--common-message {
+	display: table-cell;
+	padding: 6px 0 6px 12px;
+}
+
