@@ -1,9 +1,22 @@
 // No way to just import everything with a single statement I'm afraid,
 // every test needs to be added here and in the `tests` variable.
+
+import * as bodyBlock from './tests/bodyBlock';
+import * as borderCollapse from './tests/borderCollapse';
+import * as jqueryVersion from './tests/jqueryVersion';
+import * as maxWidth from './tests/maxWidth';
+import * as rowReorderId from './tests/rowReorderId';
 import * as serverSidePaging from './tests/serverSidePaging';
+import * as widthOnScrollingTables from './tests/widthOnScrollingTable';
 
 let tests = [
-	serverSidePaging
+	serverSidePaging,
+	jqueryVersion,
+	borderCollapse,
+	maxWidth,
+	widthOnScrollingTables,
+	bodyBlock,
+	rowReorderId
 ];
 
 export default function ( panel, $ ) {

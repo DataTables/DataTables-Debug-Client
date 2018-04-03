@@ -1,3 +1,4 @@
+import {versionCompare} from './lib';
 
 export default function ( panel, $ ) {
 	panel.html( 'Loading...' );
@@ -83,29 +84,6 @@ function displayItem ( panel, $, item ) {
 	);
 }
 
-// true if v1 > v2
-// false if v1 < v2
-// null if v1 === v2
-function versionCompare( v1, v2 ) {
-	var aThis = v1;
-	var aThat = v2;
-	var iThis, iThat;
-
-	for ( var i=0, iLen=aThat.length ; i<iLen ; i++ ) {
-		iThis = parseInt( aThis[i], 10 ) || 0;
-		iThat = parseInt( aThat[i], 10 ) || 0;
-
-		// Parts are the same, keep comparing
-		if (iThis === iThat) {
-			continue;
-		}
-
-		// Parts are different, return immediately
-		return iThis > iThat;
-	}
-
-	return null;
-};
 
 function ajaxLoad( $, panel, callback ) {
 	$.ajax( {
