@@ -16,7 +16,7 @@ export default function ( $ ) {
 			return;
 		}
 
-		if ( $(settings.nTable).attr('width') != '100%' || $(settings.nTable).css('width') != '100%' ) {
+		if ( $(settings.nTable).attr('width') != '100%' && $(settings.nTable).css('width') != '100%' ) {
 			out.push( {
 				table: settings.nTable.id,
 				level: 'error',

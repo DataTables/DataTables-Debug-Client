@@ -7,6 +7,7 @@ import * as borderCollapse from './tests/borderCollapse';
 import * as jqueryVersion from './tests/jqueryVersion';
 import * as maxWidth from './tests/maxWidth';
 import * as rowReorderId from './tests/rowReorderId';
+import * as scrollingAlignment from './tests/scrollingAlignment';
 import * as serverSidePaging from './tests/serverSidePaging';
 import * as widthOnScrollingTables from './tests/widthOnScrollingTable';
 
@@ -18,7 +19,8 @@ let tests = [
 	widthOnScrollingTables,
 	bodyBlock,
 	rowReorderId,
-	bootstrapDom
+	bootstrapDom,
+	scrollingAlignment
 ];
 
 export default function ( panel, $ ) {
