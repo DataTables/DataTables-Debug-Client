@@ -2,6 +2,7 @@
 // every test needs to be added here and in the `tests` variable.
 
 import * as bodyBlock from './tests/bodyBlock';
+import * as bootstrapDom from './tests/bootstrapDom';
 import * as borderCollapse from './tests/borderCollapse';
 import * as jqueryVersion from './tests/jqueryVersion';
 import * as maxWidth from './tests/maxWidth';
@@ -16,7 +17,8 @@ let tests = [
 	maxWidth,
 	widthOnScrollingTables,
 	bodyBlock,
-	rowReorderId
+	rowReorderId,
+	bootstrapDom
 ];
 
 export default function ( panel, $ ) {
