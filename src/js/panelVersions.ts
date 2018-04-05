@@ -97,9 +97,11 @@ function ajaxLoad( $, panel, callback ) {
 				'RowGroup', 'RowReorder', 'Scroller', 'Select'
 			];
 
-			localVersions.push( {
+				localVersions.push( {
 				name: 'DataTables',
-				version: $.fn.dataTable.version,
+				version: $.fn.dataTable ?
+					$.fn.dataTable.version :
+					null,
 				tag: json.DataTables.release.version,
 				nightly: json.DataTables.nightly.version
 			} );
@@ -112,7 +114,7 @@ function ajaxLoad( $, panel, callback ) {
 				
 				localVersions.push( {
 					name: name,
-					version: $.fn.dataTable[hostName] ?
+					version: $.fn.dataTable && $.fn.dataTable[hostName] ?
 						$.fn.dataTable[hostName].version :
 						null,
 					tag: json[name].release.version,

@@ -13,7 +13,7 @@ export default function ( $ ) {
 
 	$.fn.dataTable.tables( {api: true} ).iterator( 'table', function ( settings, i ) {
 		if ( ! scrollingEnabled( settings ) ) {
-			return;
+			return out;
 		}
 
 		if ( $(settings.nTable).attr('width') != '100%' && $(settings.nTable).css('width') != '100%' ) {

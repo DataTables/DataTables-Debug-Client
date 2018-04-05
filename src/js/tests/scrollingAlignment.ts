@@ -13,11 +13,11 @@ export default function ( $ ) {
 
 	$.fn.dataTable.tables( {api: true} ).iterator( 'table', function ( settings, i ) {
 		if ( ! scrollingEnabled( settings ) ) {
-			return;
+			return out;
 		}
 
 		if ( ! $(settings.nTable).is(':visible') ) {
-			return;
+			return out;
 		}
 
 		let bodyWidth = $('table', settings.nScrollBody).width();

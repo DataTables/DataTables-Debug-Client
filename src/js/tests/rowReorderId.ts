@@ -15,7 +15,7 @@ export default function ( $ ) {
 		let api = new $.fn.dataTable.Api( settings );
 		
 		if ( api.rows().count() === 0 ) {
-			return;
+			return out;
 		}
 
 		if ( settings.rowreorder && ! api.row(0).id() ) {
