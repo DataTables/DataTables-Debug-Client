@@ -1,7 +1,7 @@
 import {stringify as jsonStringify} from './json';
 
 export default function ( panel, $ ) {
-	panel.html( 'It can often greatly assist in debugging a table if we can see the configuration and data in the table. This feature of the debugger will read your local DataTables configuration and upload it to <a href="https://debug.datatables.net">debug.datatables.net</a> for inspection.<br><br>Important: The data uploaded to the server will be deleted after two weeks and you have the option of deleting it immediately, but please be aware that the data can be publicly accessed, so you should not upload any sensitive information!' );
+	panel.html( 'It can often greatly assist in debugging a table if we can see the configuration and data in the table. This feature of the debugger will read your local DataTables configuration and upload it to <a href="https://debug.datatables.net">debug.datatables.net</a> for inspection.<br><br>Important: The data uploaded to the server can only be viewed by SpryMedia employees will be automatically deleted after two weeks. The data will <i>never</i> be sold or otherwise published. It is used for debugging any issues you are experiencing with DataTables only.' );
 
 	panel.append(
 		$('<button class="datatables-debug--upload-button">Upload configuration</button>')
@@ -158,7 +158,8 @@ function upload( $, dataStr ) {
 		url: 'https://debug.datatables.net/remote/submit.php',
 		data: {
 			data: dataStr,
-			unique: new Date().getTime()
+			unique: new Date().getTime(),
+			nextGeneration: 2
 		},
 		type: 'POST',
 		success: function (response) {
