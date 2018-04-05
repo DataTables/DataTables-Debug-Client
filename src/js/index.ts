@@ -5,6 +5,7 @@
  */
 
 import panelCommon from './panelCommon';
+import panelUpload from './panelUpload';
 import panelVersions from './panelVersions';
 import settings from './settings';
 
@@ -32,11 +33,7 @@ import settings from './settings';
 
 	let panels = {
 		common: panelCommon,
-
-		upload: function ( panel ) {
-			panel.html( 'Upload information' );
-		},
-
+		upload: panelUpload,
 		versions: panelVersions
 	}
 
@@ -89,7 +86,7 @@ import settings from './settings';
 				)
 		)
 		.append(
-			$('<div/>')
+			$('<div>&times;</div>')
 				.addClass('datatables-debug--close')
 				.on('click', function () {
 					debug.remove();
