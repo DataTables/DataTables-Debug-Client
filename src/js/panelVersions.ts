@@ -10,32 +10,29 @@ export default function ( panel, $ ) {
 
 function display ( panel, $, versions ) {
 	panel.empty();
+
 	panel.append( $('<div/>')
-		.addClass( 'datatables-debug--versions-title' )
-		.html( 'Installed Libraries' )
+		.addClass( 'datatables-debug--versions-item __title' )
+		.append( $('<span/>')
+			.addClass( 'datatables-debug--versions-name' )
+			.html( 'Library' )
+		)
+		.append( $('<span/>')
+			.addClass( 'datatables-debug--versions-update __empty' )
+			.html( 'Info' )
+		)
+		.append( $('<span/>')
+			.addClass( 'datatables-debug--versions-version' )
+			.html( 'Installed' )
+		)
+		.append( $('<span/>')
+			.addClass( 'datatables-debug--versions-latest' )
+			.html( 'Latest' )
+		)
 	);
 
 	for ( let i=0, ien=versions.length ; i<ien ; i++ ) {
-		if ( versions[i].version !== null ) {
-			displayItem( panel, $, versions[i] );
-		}
-	}
-
-	panel.append( $('<div/>')
-		.addClass( 'datatables-debug--versions-title' )
-		.html( 'Not Installed Libraries' )
-	);
-
-	let count = 0;
-	for ( let i=0, ien=versions.length ; i<ien ; i++ ) {
-		if ( versions[i].version === null ) {
-			displayItem( panel, $, versions[i] );
-			count++;
-		}
-	}
-
-	if ( count === 0 ) {
-
+		displayItem( panel, $, versions[i] );
 	}
 }
 
@@ -79,7 +76,11 @@ function displayItem ( panel, $, item ) {
 		.append( update )
 		.append( $('<span/>')
 			.addClass( 'datatables-debug--versions-version' )
-			.html( item.version || item.tag )
+			.html( item.version ? item.version : '-' )
+		)
+		.append( $('<span/>')
+			.addClass( 'datatables-debug--versions-latest' )
+			.html( item.tag )
 		)
 	);
 }
