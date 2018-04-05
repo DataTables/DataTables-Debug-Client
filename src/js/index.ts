@@ -93,6 +93,8 @@ import settings from './settings';
 				})
 		)
 		.appendTo('body');
+	
+	draggable( $('div.datatables-debug--title', debug), debug );
 
 	debug.on('click', 'div.datatables-debug--button', function () {
 		if ( $(this).next().hasClass('datatables-debug--panel') ) {
@@ -120,5 +122,28 @@ import settings from './settings';
 			}, 100 );
 		}
 	});
+
+
+	function draggable ( dragHandle, dragged ) {
+		let initX, initY, mousePressX, mousePressY;
+
+		dragHandle.on('mousedown', function(event) {
+			initX = dragged[0].offsetLeft;
+			initY = dragged[0].offsetTop;
+			mousePressX = event.clientX;
+			mousePressY = event.clientY;
+
+			$(window)
+				.on('mousemove', function (e) {
+					dragged.css( {
+						'left': initX + e.clientX - mousePressX,
+						'top': initY + e.clientY - mousePressY
+					} );
+				} )
+				.on('mouseup', function() {
+					$(window).off('mouseup mousemove');
+				} );
+		});
+	}
 
 })(window, document, (<any>window).jQuery);
