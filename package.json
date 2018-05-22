@@ -21,7 +21,7 @@
     "browserify": "^16.1.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-buffer": "0.0.2",
-    "gulp-sass": "^3.2.1",
+    "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-tap": "^1.0.1",
     "gulp-typescript": "^4.0.2",
