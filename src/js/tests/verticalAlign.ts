@@ -1,6 +1,7 @@
 
+// Based on https://datatables.net/forums/discussion/comment/125984/#Comment_125984
 export function name () {
-	return 'vertial-align in table header';
+	return 'vertical-align in table header';
 }
 
 export default function ( $ ) {

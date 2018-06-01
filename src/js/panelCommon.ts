@@ -9,6 +9,7 @@ import * as maxWidth from './tests/maxWidth';
 import * as rowReorderId from './tests/rowReorderId';
 import * as scrollingAlignment from './tests/scrollingAlignment';
 import * as serverSidePaging from './tests/serverSidePaging';
+import * as vertialAlign from './tests/verticalAlign';
 import * as widthOnScrollingTables from './tests/widthOnScrollingTable';
 
 let tests = [
@@ -20,7 +21,8 @@ let tests = [
 	bodyBlock,
 	rowReorderId,
 	bootstrapDom,
-	scrollingAlignment
+	scrollingAlignment,
+	vertialAlign
 ];
 
 export default function ( panel, $ ) {
