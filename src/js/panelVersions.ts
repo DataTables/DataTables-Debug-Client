@@ -46,7 +46,7 @@ function displayItem ( panel, $, item ) {
 		let toNightly = versionCompare( item.tag, item.nightly );
 
 		if ( toTag === false ) {
-			update.html( 'New version available '+item.version );
+			update.html( 'New version available' );
 			update.addClass( '__new_version' );
 		}
 		else if ( toTag === null && toNightly === null ) {
@@ -54,7 +54,7 @@ function displayItem ( panel, $, item ) {
 			update.addClass( '__up_to_date' );
 		}
 		else if ( toTag === null && toNightly === false ) {
-			update.html( 'Nightly available '+item.nightly );
+			update.html( 'Nightly available' );
 			update.addClass( '__nightly_available' );
 		}
 		// else if ( toTag === null && toNightly === true ) -- Tag ahead of release!
