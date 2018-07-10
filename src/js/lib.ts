@@ -1,4 +1,15 @@
 
+export interface ITestResult {
+	table: string;
+	level: 'error' | 'warning';
+	msg: string;	
+}
+
+export interface ITest {
+	($): ITestResult[];
+}
+
+
 // true if v1 > v2
 // false if v1 < v2
 // null if v1 === v2
@@ -29,6 +40,18 @@ export function scrollingEnabled ( settings ): boolean {
 	}
 
 	return false;
+}
+
+let tests: {name: string, fn: ITest}[] = [];
+export function createTest ( name: string, test: ITest ) {
+	tests.push( {
+		name,
+		fn: test
+	} );
+}
+
+export function getTests () {
+	return tests;
 }
 
 export default {};

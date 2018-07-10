@@ -1,31 +1,12 @@
 // No way to just import everything with a single statement I'm afraid,
 // every test needs to be added here and in the `tests` variable.
 
-import * as bodyBlock from './tests/bodyBlock';
-import * as bootstrapDom from './tests/bootstrapDom';
-import * as borderCollapse from './tests/borderCollapse';
-import * as jqueryVersion from './tests/jqueryVersion';
-import * as maxWidth from './tests/maxWidth';
-import * as rowReorderId from './tests/rowReorderId';
-import * as scrollingAlignment from './tests/scrollingAlignment';
-import * as serverSidePaging from './tests/serverSidePaging';
-import * as vertialAlign from './tests/verticalAlign';
-import * as widthOnScrollingTables from './tests/widthOnScrollingTable';
+import './tests/index';
 
-let tests = [
-	serverSidePaging,
-	jqueryVersion,
-	borderCollapse,
-	maxWidth,
-	widthOnScrollingTables,
-	bodyBlock,
-	rowReorderId,
-	bootstrapDom,
-	scrollingAlignment,
-	vertialAlign
-];
+import {getTests} from './lib';
 
 export default function ( panel, $ ) {
+	let tests = getTests();
 	let info = $(' <span class="datatables-debug--common-run>Gathering information</span>');
 
 	panel
@@ -35,8 +16,8 @@ export default function ( panel, $ ) {
 	let results = [];
 
 	for ( let i=0, ien=tests.length ; i<ien ; i++ ) {
-		info.html( 'Test '+(i+1)+'/'+tests.length + ': '+ tests[i].name() );
-		results = results.concat( tests[i].default( $ ) );
+		info.html( 'Test '+(i+1)+'/'+tests.length + ': '+ tests[i].name );
+		results = results.concat( tests[i].fn( $ ) );
 	}
 
 	if ( results.length === 0 ) {
