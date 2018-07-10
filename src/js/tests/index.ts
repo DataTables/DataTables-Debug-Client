@@ -1,6 +1,7 @@
 // List of all the test files
 import './bodyBlock';
 import './bootstrapAndDataTablesStyling';
+import './bootstrapContainer';
 import './bootstrapDom';
 import './borderCollapse';
 import './fixedHeaderUserScalable';

@@ -12,7 +12,9 @@ lib.createTest('Bootstrap and DataTables styling both loaded', function($) {
 		let container = $(this.table().container());
 		
 		if ( container.hasClass( 'dt-bootstrap4' ) ) {
-			if ( parseInt( $('div.paginate_button').css('padding-left'), 10 ) !== 0 ) {
+			let paddingLeft = $('div.paginate_button').css('padding-left');
+
+			if ( paddingLeft && parseInt( paddingLeft, 10 ) !== 0 ) {
 				out.push({
 					table: settings.nTable.id,
 					level: 'error',
