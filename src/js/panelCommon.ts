@@ -61,7 +61,7 @@ export default function(panel, $) {
 					.append(
 						$('<span/>')
 							.addClass('datatables-debug--common-name')
-							.html('#' + results[i].table)
+							.html(results[i].table !== '-' ? '#' + results[i].table : '-')
 					)
 					.append(
 						$('<span/>')
