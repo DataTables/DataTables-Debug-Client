@@ -2,6 +2,7 @@
 import './bodyBlock';
 import './bootstrapDom';
 import './borderCollapse';
+import './fixedHeaderUserScalable';
 import './jqueryVersion';
 import './maxWidth';
 import './rowReorderId';
