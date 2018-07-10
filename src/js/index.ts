@@ -49,6 +49,7 @@ import settings from './settings';
 	// - Upload debug information
 	let debug = $('<div/>')
 		.addClass('datatables-debug')
+		.css('top', 30 + $(window).scrollTop())
 		.append(
 			$('<div/>')
 				.addClass('datatables-debug--title')
