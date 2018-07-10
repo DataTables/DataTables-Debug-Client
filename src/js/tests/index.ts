@@ -4,6 +4,7 @@ import './bootstrapAndDataTablesStyling';
 import './bootstrapContainer';
 import './bootstrapDom';
 import './borderCollapse';
+import './editorTags';
 import './fixedHeaderUserScalable';
 import './jqueryVersion';
 import './maxWidth';
