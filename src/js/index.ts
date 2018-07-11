@@ -5,6 +5,7 @@
  */
 
 import panelCommon from './panelCommon';
+import panelInfo from './panelInfo';
 import panelUpload from './panelUpload';
 import panelVersions from './panelVersions';
 import settings from './settings';
@@ -30,6 +31,7 @@ import settings from './settings';
 	}
 
 	let panels = {
+		info: panelInfo,
 		common: panelCommon,
 		upload: panelUpload,
 		versions: panelVersions
@@ -54,6 +56,15 @@ import settings from './settings';
 			$('<div/>')
 				.addClass('datatables-debug--title')
 				.html('DataTables debugger')
+		)
+		.append(
+			$('<div/>')
+				.addClass('datatables-debug--button')
+				.data('panel', 'info')
+				.html(
+					'Table information' +
+						'<div class="datatables-debug--button-info">Summary information about the DataTables on this page.</div>'
+				)
 		)
 		.append(
 			$('<div/>')

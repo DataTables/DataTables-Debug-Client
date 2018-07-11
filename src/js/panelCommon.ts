@@ -1,6 +1,3 @@
-// No way to just import everything with a single statement I'm afraid,
-// every test needs to be added here and in the `tests` variable.
-
 import './tests/index';
 
 import { getTests } from './lib';
