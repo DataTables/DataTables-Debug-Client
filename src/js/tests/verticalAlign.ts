@@ -19,7 +19,12 @@ lib.createTest('vertical-align in table header', function($) {
 				return;
 			}
 
-			if (vertAlign !== 'middle' && vertAlign !== 'top' && vertAlign !== 'bottom') {
+			if (
+				vertAlign !== '' && // when removed from the document
+				vertAlign !== 'middle' &&
+				vertAlign !== 'top' &&
+				vertAlign !== 'bottom'
+			) {
 				out.push({
 					table: settings.nTable.id,
 					level: 'error',
