@@ -57,7 +57,7 @@ gulp.task('debug-css', function () {
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write('./dist/css/maps'))
-        .pipe(gulp.dest('./dist/css'));
+        .pipe(gulp.dest('./dist'));
 } );
 
 gulp.task( 'default', gulp.series(
