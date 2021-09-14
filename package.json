@@ -18,15 +18,15 @@
     "serially": "^3.0.3"
   },
   "devDependencies": {
-    "browserify": "^16.1.1",
-    "gulp": "github:gulpjs/gulp#4.0",
+    "browserify": "^17.0.0",
+    "gulp": "^4.0.2",
     "gulp-buffer": "0.0.2",
-    "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-tap": "^1.0.1",
-    "gulp-typescript": "^4.0.2",
-    "gulp-uglify": "^3.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-tap": "^2.0.0",
+    "gulp-typescript": "^5.0.1",
+    "gulp-uglify": "^3.0.2",
     "gulplog": "^1.0.0",
-    "typescript": "^2.8.1"
+    "typescript": "^4.4.3"
   }
 }
