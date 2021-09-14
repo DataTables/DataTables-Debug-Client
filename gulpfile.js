@@ -1,14 +1,7 @@
 var gulp = require('gulp');
-var browserify = require('browserify');
-var log = require('gulplog');
-var tap = require('gulp-tap');
-var buffer = require('gulp-buffer');
 var sourcemaps = require('gulp-sourcemaps');
-var uglify = require('gulp-uglify');
 var ts = require('gulp-typescript');
 var sass = require('gulp-sass')(require('node-sass'));
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
 var exec = require('child_process').exec;
 
 
