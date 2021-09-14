@@ -6,7 +6,10 @@ var buffer = require('gulp-buffer');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var ts = require('gulp-typescript');
-var sass = require("gulp-sass");
+var sass = require('gulp-sass')(require('node-sass'));
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+var exec = require('child_process').exec;
 
 
 gulp.task( 'debug-typescript', function () {
@@ -23,32 +26,12 @@ gulp.task( 'debug-typescript', function () {
  } );
 
 
- gulp.task( 'debug-browserify', function () {
-	return gulp
-		.src('dist/js/index.js', {read: false}) // no need of reading file because browserify does.
-
-		// transform file objects using gulp-tap plugin
-		.pipe(tap(function (file) {
-
-			log.info('bundling ' + file.path);
-
-			// replace file contents with browserify's bundle stream
-			file.contents = browserify(file.path, {debug: true}).bundle();
-
-		}))
-
-		// transform streaming contents into buffer contents (because gulp-sourcemaps does not support streaming contents)
-		.pipe(buffer())
-
-		// load and init sourcemaps
-		.pipe(sourcemaps.init({loadMaps: true}))
-
-		.pipe(uglify())
-
-		// write sourcemaps
-		.pipe(sourcemaps.write('./'))
-
-		.pipe(gulp.dest('dist'));
+ gulp.task( 'debug-browserify', function (cb) {
+	 exec('./node_modules/.bin/browserify dist/js/index.js > dist/js/DT_Debug.js', function (err, stdout, stderr) {
+		console.log(stdout);
+		console.log(stderr);
+		cb(err);
+	 });
 } );
 
 

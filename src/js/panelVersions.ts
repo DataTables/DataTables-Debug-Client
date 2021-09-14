@@ -110,7 +110,10 @@ function ajaxLoad($, panel, callback) {
 				'RowGroup',
 				'RowReorder',
 				'Scroller',
-				'Select'
+				'SearchBuilder',
+				'SearchPanes',
+				'Select',
+				//'StateRestore'
 			];
 
 			localVersions.push({

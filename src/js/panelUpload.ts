@@ -47,6 +47,9 @@ function gatherData($) {
 	extraGeneric(data, 'Responsive', $);
 	extraGeneric(data, 'RowReorder', $);
 	extraGeneric(data, 'Scroller', $);
+	extraGeneric(data, 'SearchBuilder', $);
+	extraGeneric(data, 'SearchPanes', $);
+	extraGeneric(data, 'StateRestore', $);
 	extraGeneric(data, 'select', $);
 
 	// Global DataTable options
