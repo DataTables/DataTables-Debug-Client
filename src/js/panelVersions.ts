@@ -53,14 +53,11 @@ function displayItem(panel, $, item) {
 		if (toTag === false) {
 			update.html('New version available');
 			update.addClass('__new_version');
-		} else if (toTag === null && toNightly === null) {
+		}
+		else if (toTag === null) {
 			update.html('Up to date');
 			update.addClass('__up_to_date');
-		} else if (toTag === null && toNightly === false) {
-			update.html('Nightly available');
-			update.addClass('__nightly_available');
 		}
-		// else if ( toTag === null && toNightly === true ) -- Tag ahead of release!
 		else if (toTag === true) {
 			// Version ahead of the tag
 			update.html('Using nightly');
