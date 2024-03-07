@@ -48,7 +48,7 @@ function displayItem(panel, $, item) {
 
 	if (item.version) {
 		let toTag = versionCompare(item.version, item.tag);
-		let toNightly = versionCompare(item.tag, item.nightly);
+		let toNightly = false; //versionCompare(item.tag, item.nightly);
 
 		if (toTag === false) {
 			update.html('New version available');
