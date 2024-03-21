@@ -1,4 +1,5 @@
 import { stringify as jsonStringify } from './json';
+declare var DataTable;
 
 export default function(panel, $) {
 	panel.html(
@@ -30,30 +31,30 @@ function gatherData($) {
 
 	// DataTables information (version)
 	data.modules.datatables = {
-		version: $.fn.dataTableExt.sVersion,
-		apiIndex: $.fn.dataTableExt.iApiIndex,
-		errorMode: $.fn.dataTableExt.sErrMode,
-		builder: !$.fn.dataTable.ext ? false : $.fn.dataTable.ext.builder || false
+		version: DataTable.version,
+		apiIndex: 0,
+		errorMode: DataTable.errMode,
+		builder: !DataTable.ext ? false : DataTable.ext.builder || false
 	};
 
 	// Extras
-	extraGeneric(data, 'AutoFill', $);
-	extraGeneric(data, 'Buttons', $);
-	extraGeneric(data, 'ColReorder', $);
-	extraGeneric(data, 'Editor', $);
-	extraGeneric(data, 'FixedColumns', $);
-	extraGeneric(data, 'FixedHeader', $);
-	extraGeneric(data, 'KeyTable', $);
-	extraGeneric(data, 'Responsive', $);
-	extraGeneric(data, 'RowReorder', $);
-	extraGeneric(data, 'Scroller', $);
-	extraGeneric(data, 'SearchBuilder', $);
-	extraGeneric(data, 'SearchPanes', $);
-	extraGeneric(data, 'StateRestore', $);
-	extraGeneric(data, 'select', $);
+	extraGeneric(data, 'AutoFill', DataTable);
+	extraGeneric(data, 'Buttons', DataTable);
+	extraGeneric(data, 'ColReorder', DataTable);
+	extraGeneric(data, 'Editor', DataTable);
+	extraGeneric(data, 'FixedColumns', DataTable);
+	extraGeneric(data, 'FixedHeader', DataTable);
+	extraGeneric(data, 'KeyTable', DataTable);
+	extraGeneric(data, 'Responsive', DataTable);
+	extraGeneric(data, 'RowReorder', DataTable);
+	extraGeneric(data, 'Scroller', DataTable);
+	extraGeneric(data, 'SearchBuilder', DataTable);
+	extraGeneric(data, 'SearchPanes', DataTable);
+	extraGeneric(data, 'StateRestore', DataTable);
+	extraGeneric(data, 'select', DataTable);
 
 	// Global DataTable options
-	let dtExt = $.fn.dataTableExt;
+	let dtExt = DataTable.ext;
 
 	data.ext.filtering = dtExt.afnFiltering;
 	data.ext.search = dtExt.ofnSearch;
@@ -74,32 +75,25 @@ function gatherData($) {
 	}
 
 	// Tables
-	data.tables = $.fn.dataTableSettings;
+	data.tables = DataTable.settings;
 
 	// Current display of the table (with filtering information)
 	data.tablesDisplayData = [];
 	data.tablesDisplayExtra = [];
 
-	for (let i = 0, ien = $.fn.dataTableSettings.length; i < ien; i++) {
-		let table = $.fn.dataTableSettings[i];
+	for (let i = 0, ien = DataTable.settings.length; i < ien; i++) {
+		let table = DataTable.settings[i];
 		let rowCount = table.aoData.length;
-		let colCount = table.aoColumns.length;
 		let displayMA = table.aiDisplayMaster;
 		let displayA = table.aiDisplay;
 		let tableData = [];
 		let extra = [];
+		let api = new DataTable.Api(table);
 
 		for (let j = 0, jen = rowCount; j < jen; j++) {
 			let row = [];
 
-			if (table.oApi && typeof table.oApi._fnGetCellData === 'function') {
-				for (let k = 0, ken = colCount; k < ken; k++) {
-					row.push(table.oApi._fnGetCellData(table, displayMA[j], k, 'display'));
-				}
-			} else {
-				row = table.oInstance.fnGetData(displayMA[j]);
-			}
-
+			row = api.row(displayMA[j]).data();
 			tableData.push(row);
 			extra.push({
 				dataIndex: displayMA[j],
@@ -157,7 +151,7 @@ function stringify($, data) {
 
 function upload($, dataStr) {
 	$.ajax({
-		url: 'https://debug.datatables.net/remote/submit.php',
+		url: 'https://debug.datatables.net/submit.php',
 		data: {
 			data: dataStr,
 			unique: new Date().getTime(),
@@ -170,10 +164,9 @@ function upload($, dataStr) {
 
 			if (a[0] === 'done') {
 				$('div.datatables-debug--upload-ready').html(
-					'Upload complete - <a href="https://debug.datatables.net/' + url + '">' + url + '</a>'
-				);
-				$('div.datatables-debug--upload-ready').after(
-					'Your debug code is shown above. Please include this in any support requests.'
+					'Upload complete!<br>'+
+					'Your debug code is: <strong>' + url + '</strong></a><br>' +
+					'Please include this in any support requests.'
 				);
 			} else {
 				$('div.datatables-debug--upload-ready').html('An error occurred.');
@@ -183,11 +176,11 @@ function upload($, dataStr) {
 	});
 }
 
-function extraGeneric(data, name, $) {
+function extraGeneric(data, name, dt) {
 	let extn;
 
-	if ($.fn.dataTable[name]) {
-		extn = $.fn.dataTable[name];
+	if (dt[name]) {
+		extn = dt[name];
 	} else if (window[name]) {
 		// Legacy
 		extn = window[name];

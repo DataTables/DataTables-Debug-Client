@@ -43,7 +43,7 @@ import settings from './settings';
 	}
 
 	// Load CSS
-	loadFile('css', settings.debugRoot + '/debug.css');
+	loadFile('css', settings.debugRoot + '/bookmarklet/debug.css');
 
 	// Create a three panel view:
 	// - Version check (loads a JSON feed with current JSON information)
