@@ -1,5 +1,5 @@
-export default function(panel, $) {
-	let tables = $.fn.dataTableSettings;
+export default function(panel, DataTable, $) {
+	let tables = DataTable.settings;
 	let plural = tables.length === 1 ? '1 table' : tables.length + ' tables';
 
 	panel.html(`Information about ${plural} available`);

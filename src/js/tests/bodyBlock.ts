@@ -1,7 +1,7 @@
 // Test based on https://www.datatables.net/forums/discussion/48025/responsive-plugin-not-working#latest
 import * as lib from '../lib';
 
-lib.createTest('display: block on body', function($) {
+lib.createTest('display: block on body', function(DataTable, $) {
 	let out = [];
 
 	if ($('body').css('display') == 'table' && $('body').css('table-layout') != 'fixed') {

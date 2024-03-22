@@ -13,4 +13,5 @@ import './rowReorderId';
 import './scrollingAlignment';
 import './serverSidePaging';
 import './verticalAlign';
+import './v1';
 import './widthOnScrollingTable';

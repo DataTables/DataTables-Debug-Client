@@ -2,7 +2,7 @@ import './tests/index';
 
 import { getTests } from './lib';
 
-export default function(panel, $) {
+export default function(panel, DataTable, $) {
 	let tests = getTests();
 	let info = $(' <span class="datatables-debug--common-run>Gathering information</span>');
 
@@ -12,7 +12,7 @@ export default function(panel, $) {
 
 	for (let i = 0, ien = tests.length; i < ien; i++) {
 		info.html('Test ' + (i + 1) + '/' + tests.length + ': ' + tests[i].name);
-		results = results.concat(tests[i].fn($));
+		results = results.concat(tests[i].fn(DataTable, $));
 	}
 
 	if (results.length === 0) {

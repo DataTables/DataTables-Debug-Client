@@ -1,14 +1,10 @@
 import { scrollingEnabled } from '../lib';
 import * as lib from '../lib';
 
-lib.createTest('Misaligned header and columns on a scrolling table', function($) {
+lib.createTest('Misaligned header and columns on a scrolling table', function(DataTable, $) {
 	let out = [];
 
-	if (!$.fn.dataTable) {
-		return out;
-	}
-
-	$.fn.dataTable.tables({ api: true }).iterator('table', function(settings, i) {
+	DataTable.tables({ api: true }).iterator('table', function(settings, i) {
 		if (!scrollingEnabled(settings)) {
 			return out;
 		}

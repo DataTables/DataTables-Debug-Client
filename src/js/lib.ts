@@ -5,7 +5,7 @@ export interface ITestResult {
 }
 
 export interface ITest {
-	($): ITestResult[];
+	(DataTable, $): ITestResult[];
 }
 
 // true if v1 > v2

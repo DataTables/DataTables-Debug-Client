@@ -1,14 +1,10 @@
 // Check to see if server-side processing is enabled when paging is disabled
 import * as lib from '../lib';
 
-lib.createTest('Server-side processing and paging', function($) {
+lib.createTest('Server-side processing and paging', function(DataTable, $) {
 	let out = [];
 
-	if (!$.fn.dataTable) {
-		return out;
-	}
-
-	$.fn.dataTable.tables({ api: true }).iterator('table', function(settings, i) {
+	DataTable.tables({ api: true }).iterator('table', function(settings, i) {
 		if (settings.oFeatures.bServerSide && !settings.oFeatures.bPaginate) {
 			out.push({
 				table: settings.nTable.id,

@@ -1,14 +1,10 @@
 // Based on https://datatables.net/forums/discussion/comment/125984/#Comment_125984
 import * as lib from '../lib';
 
-lib.createTest('Max-width', function($) {
+lib.createTest('Max-width', function(DataTable, $) {
 	let out = [];
 
-	if (!$.fn.dataTable) {
-		return out;
-	}
-
-	$.fn.dataTable.tables({ api: true }).iterator('table', function(settings, i) {
+	DataTable.tables({ api: true }).iterator('table', function(settings, i) {
 		if ($(settings.nTable).css('max-width') != 'none') {
 			out.push({
 				table: settings.nTable.id,

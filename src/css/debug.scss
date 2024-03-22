@@ -14,19 +14,26 @@ div.datatables-debug {
 	width: 500px;
 	z-index: 55555;
 	background: repeating-linear-gradient(
-		45deg,
+		-135deg,
 		#0f0f0f,
 		#0f0f0f 10px,
 		#b7c21b 10px,
 		#b7c21b 20px
 	);
-	background-position: top left;
-	//background-attachment: fixed;
 	box-shadow: 3px 3px 10px rgba( 0, 0, 0, 0.5 );
 	border: 3px solid #0f0f0f;
 	border-radius: 3px;
 	color: whitesmoke;
 	padding: 4px;
+}
+
+div.datatables-debug code {
+	color: #c6c61d;
+}
+
+div.datatables-debug a {
+	color: #f8e8a9;
+	text-decoration: underline
 }
 
 div.datatables-debug--title {
@@ -36,6 +43,18 @@ div.datatables-debug--title {
 	font-variant: small-caps;
 	font-size: 16px;
 	cursor: move;
+}
+
+div.datatables-debug--sanity {
+	@extend %box-border;
+	background-color: #0f0f0f;
+}
+
+div.datatables-debug--sanity__message {
+	font-size: 0.9em;
+	line-height: 1.34em;
+	margin-top: 1em;
+	color: #dfdfdf;
 }
 
 div.datatables-debug--button {

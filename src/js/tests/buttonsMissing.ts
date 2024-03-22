@@ -1,16 +1,12 @@
 import * as lib from '../lib';
 
-lib.createTest('Buttons config options, but buttons not loaded', function($) {
+lib.createTest('Buttons config options, but buttons not loaded', function(DataTable, $) {
 	let out = [];
 
-	if (!$.fn.dataTable) {
-		return out;
-	}
-
-	$.fn.dataTable.tables({ api: true }).iterator('table', function(settings, i) {
+	DataTable.tables({ api: true }).iterator('table', function(settings, i) {
 		var opts = this.init();
 
-		if ( opts.buttons && ! $.fn.dataTable.Buttons ) {
+		if ( opts.buttons && ! DataTable.Buttons ) {
 			out.push({
 				table: settings.nTable.id,
 				level: 'error',

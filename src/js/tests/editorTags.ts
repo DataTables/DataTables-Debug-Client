@@ -1,11 +1,7 @@
 import * as lib from '../lib';
 
-lib.createTest('Unknown Editor template tags', function($) {
+lib.createTest('Unknown Editor template tags', function(DataTable, $) {
 	let out = [];
-
-	if (!$.fn.dataTable) {
-		return out;
-	}
 
 	$('editor-field').each(function() {
 		if (

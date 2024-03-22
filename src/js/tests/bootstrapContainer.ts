@@ -1,13 +1,9 @@
 import * as lib from '../lib';
 
-lib.createTest('Bootstrap tables should be in a container', function($) {
+lib.createTest('Bootstrap tables should be in a container', function(DataTable, $) {
 	let out = [];
 
-	if (!$.fn.dataTable) {
-		return out;
-	}
-
-	$.fn.dataTable.tables({ api: true }).iterator('table', function(settings, i) {
+	DataTable.tables({ api: true }).iterator('table', function(settings, i) {
 		// Easiest way to check for this is to check the paging controls and see if they look terrible!
 		let container = $(this.table().container());
 		

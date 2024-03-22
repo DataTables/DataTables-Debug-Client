@@ -1,15 +1,11 @@
 // Based on https://datatables.net/forums/discussion/comment/125984/#Comment_125984
 import * as lib from '../lib';
 
-lib.createTest('vertical-align in table header', function($) {
+lib.createTest('vertical-align in table header', function(DataTable, $) {
 	let out = [];
 
-	if (!$.fn.dataTable) {
-		return out;
-	}
-
-	$.fn.dataTable.tables({ api: true }).iterator('table', function(settings, i) {
-		var inst = new $.fn.dataTable.Api(settings);
+	DataTable.tables({ api: true }).iterator('table', function(settings, i) {
+		var inst = new DataTable.Api(settings);
 		var tableFound = false;
 
 		inst.columns().every(function() {

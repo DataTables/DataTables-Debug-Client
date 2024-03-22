@@ -1,6 +1,6 @@
 import * as lib from '../lib';
 
-lib.createTest('FixedHeader without user-scalable', function($) {
+lib.createTest('FixedHeader without user-scalable', function(DataTable, $) {
 	let out = [];
 	let userScalable = true;
 
@@ -12,7 +12,7 @@ lib.createTest('FixedHeader without user-scalable', function($) {
 		}
 	});
 
-	if ($.fn.dataTable.FixedHeader && userScalable) {
+	if (DataTable.FixedHeader && userScalable) {
 		out.push({
 			table: '-',
 			level: 'warning',

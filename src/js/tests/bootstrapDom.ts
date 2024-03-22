@@ -1,19 +1,15 @@
 import * as lib from '../lib';
 
-lib.createTest('`dom` option with Bootstrap', function($) {
+lib.createTest('`dom` option with Bootstrap', function(DataTable, $) {
 	let out = [];
 
-	if (!$.fn.dataTable) {
-		return out;
-	}
-
-	$.fn.dataTable.tables({ api: true }).iterator('table', function(settings, i) {
+	DataTable.tables({ api: true }).iterator('table', function(settings, i) {
 		let dom = settings.sDom;
 
 		// Can be null in DataTables 2
 		if (dom) {
 			let bootstrapTable =
-				$(settings.nTable).hasClass('bootstrap') || $(settings.nTable).hasClass('bootstrap4');
+				$(settings.nTable).hasClass('bootstrap') || $(settings.nTable).hasClass('bootstrap4') || $(settings.nTable).hasClass('bootstrap5');
 
 			if (dom.indexOf('<') === -1 && bootstrapTable) {
 				out.push({

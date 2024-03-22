@@ -1,7 +1,7 @@
 import { stringify as jsonStringify } from './json';
 declare var DataTable;
 
-export default function(panel, $) {
+export default function(panel, DataTable, $) {
 	panel.html(
 		'It can often greatly assist in debugging a table if we can see the configuration and data in the table. This feature of the debugger will read your local DataTables configuration and upload it to <a href="https://debug.datatables.net">debug.datatables.net</a> for inspection.<br><br>Important: The data uploaded to the server can only be viewed by SpryMedia employees will be automatically deleted after two weeks. The data will <i>never</i> be sold or otherwise published. It is used for debugging any issues you are experiencing with DataTables only.'
 	);

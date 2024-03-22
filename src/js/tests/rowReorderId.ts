@@ -1,15 +1,15 @@
 // Based on https://www.datatables.net/forums/discussion/42957/rowreorder-editor-don-t-send-post-on-drop#latest
 import * as lib from '../lib';
 
-lib.createTest('Row Id is available on table rows with RowReorder', function($) {
+lib.createTest('Row Id is available on table rows with RowReorder', function(DataTable, $) {
 	let out = [];
 
-	if (!$.fn.dataTable.RowReorder) {
+	if (!DataTable.RowReorder) {
 		return out;
 	}
 
-	$.fn.dataTable.tables({ api: true }).iterator('table', function(settings, i) {
-		let api = new $.fn.dataTable.Api(settings);
+	DataTable.tables({ api: true }).iterator('table', function(settings, i) {
+		let api = new DataTable.Api(settings);
 
 		if (api.rows().count() === 0) {
 			return out;

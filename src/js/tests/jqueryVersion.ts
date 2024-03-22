@@ -1,17 +1,17 @@
 import { versionCompare } from '../lib';
 import * as lib from '../lib';
 
-lib.createTest('jQuery version', function($) {
+lib.createTest('jQuery version', function(DataTable, $) {
 	let out = [];
 
-	if (versionCompare('1.7.0', $.fn.jquery) === true) {
+	if (versionCompare('3', $.fn.jquery) === true) {
 		out.push({
 			table: '-',
 			level: 'error',
 			msg:
 				'You are using an old version of jQuery (' +
 				$.fn.jquery +
-				'). DataTables and extensions require at least jQuery 1.7.'
+				'). We suggest you update to at least jQuery 3.'
 		});
 	}
 

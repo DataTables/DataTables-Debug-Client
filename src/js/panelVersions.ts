@@ -1,9 +1,9 @@
 import { versionCompare } from './lib';
 
-export default function(panel, $) {
+export default function(panel, DataTable, $) {
 	panel.html('Loading...');
 
-	ajaxLoad($, panel, function(versions) {
+	ajaxLoad(DataTable, $, panel, function(versions) {
 		display(panel, $, versions);
 	});
 }
@@ -89,7 +89,7 @@ function displayItem(panel, $, item) {
 	);
 }
 
-function ajaxLoad($, panel, callback) {
+function ajaxLoad(DataTable, $, panel, callback) {
 	$.ajax({
 		url: 'https://api.datatables.net/versions/feed',
 		dataType: 'json',
@@ -115,7 +115,7 @@ function ajaxLoad($, panel, callback) {
 
 			localVersions.push({
 				name: 'DataTables',
-				version: $.fn.dataTable ? $.fn.dataTable.version : null,
+				version: DataTable ? DataTable.version : null,
 				tag: json.DataTables.release.version,
 				nightly: json.DataTables.nightly.version
 			});
@@ -127,7 +127,7 @@ function ajaxLoad($, panel, callback) {
 				localVersions.push({
 					name: name,
 					version:
-						$.fn.dataTable && $.fn.dataTable[hostName] ? $.fn.dataTable[hostName].version : null,
+						DataTable && DataTable[hostName] ? DataTable[hostName].version : null,
 					tag: json[name].release.version,
 					nightly: json[name].nightly.version
 				});
