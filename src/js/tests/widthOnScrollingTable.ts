@@ -4,6 +4,11 @@ import * as lib from '../lib';
 lib.createTest('Scrolling tables should have width:100%', function(DataTable, $) {
 	let out = [];
 
+	// Irrelevant in DT2.1+ as it is added automatically
+	if (DataTable.versionCheck('2.1')) {
+		return out;
+	}
+
 	DataTable.tables({ api: true }).iterator('table', function(settings, i) {
 		if (!scrollingEnabled(settings)) {
 			return out;
