@@ -99,6 +99,7 @@ function ajaxLoad(DataTable, $, panel, callback) {
 				'AutoFill',
 				'Buttons',
 				'ColReorder',
+				'ColumnControl',
 				'Editor',
 				'FixedColumns',
 				'FixedHeader',
