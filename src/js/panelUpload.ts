@@ -41,7 +41,9 @@ function gatherData($) {
 	extraGeneric(data, 'AutoFill', DataTable);
 	extraGeneric(data, 'Buttons', DataTable);
 	extraGeneric(data, 'ColReorder', DataTable);
+	extraGeneric(data, 'ColumnControl', DataTable);
 	extraGeneric(data, 'Editor', DataTable);
+	extraGeneric(data, 'DateTime', DataTable);
 	extraGeneric(data, 'FixedColumns', DataTable);
 	extraGeneric(data, 'FixedHeader', DataTable);
 	extraGeneric(data, 'KeyTable', DataTable);
